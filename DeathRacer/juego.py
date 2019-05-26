@@ -160,9 +160,13 @@ class NuevoJuego(object):
 
         # funcion para controlar la lista de los enemigos.
         def listaDeObjetos(self):
+            contx = 0
+            conty = 0
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -5000 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
                 self.rectObs1.left = self.posObjx
                 self.rectObs1.top = self.posObjy
                 self.rectObs1 = self.obstaculo1.get_rect()
@@ -170,8 +174,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos1)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -4000 + contx
+                self.posObjy = -6000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs2.left = self.posObjx
                 self.rectObs2.top = self.posObjy
                 self.rectObs2 = self.obstaculo2.get_rect()
@@ -179,8 +187,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos2)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -3000 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs3.left = self.posObjx
                 self.rectObs3.top = self.posObjy
                 self.rectObs3 = self.obstaculo3.get_rect()
@@ -188,8 +200,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos3)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -2000 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs4.left = self.posObjx
                 self.rectObs4.top = self.posObjy
                 self.rectObs4 = self.obstaculo4.get_rect()
@@ -197,8 +213,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos4)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -1000 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs5.left = self.posObjx
                 self.rectObs5.top = self.posObjy
                 self.rectObs5 = self.obstaculo5.get_rect()
@@ -206,8 +226,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos5)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -900 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs6.left = self.posObjx
                 self.rectObs6.top = self.posObjy
                 self.rectObs6 = self.obstaculo6.get_rect()
@@ -215,8 +239,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos6)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -500 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs7.left = self.posObjx
                 self.rectObs7.top = self.posObjy
                 self.rectObs7 = self.obstaculo7.get_rect()
@@ -224,8 +252,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos7)
 
             for numObj in range(100):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = -200 + contx
+                self.posObjy = -5000 + conty
+                contx += 1000
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs8.left = self.posObjx
                 self.rectObs8.top = self.posObjy
                 self.rectObs8 = self.obstaculo8.get_rect()
@@ -233,8 +265,12 @@ class NuevoJuego(object):
                 self.listaObjetos.append(self.pos8)
 
             for numObj in range(10):
-                self.posObjx = random.randint(-4000, 4000)
-                self.posObjy = random.randint(-5000, 5000)
+                self.posObjx = 1000 + contx
+                self.posObjy = -5000 + conty
+                contx += 300
+                conty += 600
+                self.posObjx = random.randint(-10000, 10000)
+                self.posObjy = random.randint(-10000, 10000)
                 self.rectObs9.left = self.posObjx
                 self.rectObs9.top = self.posObjy
                 self.rectObs9 = self.obstaculo9.get_rect()
@@ -322,15 +358,15 @@ class NuevoJuego(object):
 
         bandSalida = pygame.image.load("Imagenes/meta.png")
         rectSalida = bandSalida.get_rect()
-        rectSalida.left = random.randint(0, 800)
-        rectSalida.top = -4000
+        rectSalida.left = random.randint(-5000, 5000)
+        rectSalida.top = random.randint(-10000, -9000)
         # llamada a la funcion LoadScores para cargar puntajes de jugadores
         self.LoadScores(self.username)
 
         # variables para la ejecucion del juego
         net = Network()
         jugador = self.playerCar(696, 452, 0)
-        jugador2 = self.playerCar(550, 452, 0)
+        jugador2 = self.playerCar(696, 452, 0)
         Enemigo = self.enemigo(self.rangoDisparo)
         detener = True
         enJuego = True
@@ -399,13 +435,7 @@ class NuevoJuego(object):
             # imprimir puntaje mas alto
             ventana.blit(hscor,(1200, 0))
 
-            otroJugador = net.send([jugador.posicionx, jugador.posiciony, jugador.ruta, jugador.vida])
-            jugador2.setRuta(otroJugador[2])
-            jugador2.rectCar.left = otroJugador[1]
-            jugador2.rectCar.top = otroJugador[0]
-            jugador2.vida = otroJugador[3]
-            if jugador2.vida > 0:
-                ventana.blit(jugador2.imagenCar, jugador2.rectCar)
+
 
             # ciclo para cerrar los modulos de pygame al salir del juego
             for event in pygame.event.get():
@@ -445,7 +475,7 @@ class NuevoJuego(object):
 
                     elif event.key == K_LEFT:
                         jugador.sonidoFrenado.stop()
-                        jugador.posiciony -= velx
+                        jugador.posiciony += velx
                         rectSalida.left -= velx
                         if jugador.rectCar.colliderect(jugador2.rectCar):
                             velx = 0
@@ -459,6 +489,7 @@ class NuevoJuego(object):
                                 obstacle.listaObjetos[lista][2] -= velx
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][2] -= velx
+                            jugador2.posicionx -= velx
                         #Empujar Enemigos
                         for i in range(10):
                             if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
@@ -486,6 +517,7 @@ class NuevoJuego(object):
                                 obstacle.listaObjetos[lista][2] -= velx
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][2] -= velx
+                            jugador2.posicionx -= velx
                         #Empujar Enemigos
                             for i in range(10):
                                 if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
@@ -498,7 +530,7 @@ class NuevoJuego(object):
                             Fondo1.rectFondo.right = 4000
                     elif event.key == K_UP:
                         jugador.sonidoFrenado.stop()
-                        jugador.posicionx -= velx
+                        jugador.posicionx -= vely
                         rectSalida.top += vely
                         if jugador.rectCar.colliderect(jugador2.rectCar):
                             velx = 0
@@ -512,7 +544,7 @@ class NuevoJuego(object):
                                 obstacle.listaObjetos[lista][3] += vely
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][3] += 5
-                            jugador2.rectCar.top += 5
+                            jugador2.posiciony += vely
                         # Empujar Enemigos
                             for i in range(10):
                                 if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
@@ -525,8 +557,8 @@ class NuevoJuego(object):
                             Fondo1.rectFondo.top = -2000
                     elif event.key == K_DOWN:
                         jugador.sonidoOn.play()
-                        jugador.posicionx += velx
-                        rectSalida.top += velx
+                        jugador.posicionx -= vely
+                        rectSalida.top += vely
                         if jugador.rectCar.colliderect(jugador2.rectCar):
                             velx = 0
                             vely = 0
@@ -538,7 +570,7 @@ class NuevoJuego(object):
                                 obstacle.listaObjetos[lista][3] -= 5
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][3] -= 5
-                            jugador2.rectCar.bottom -= 5
+                            jugador2.posiciony += vely
                         jugador.setRuta(0)
                         ventana.blit(jugador.imagenCar, jugador.rectCar)
                         jugador.sonidoOn.play()
@@ -565,7 +597,6 @@ class NuevoJuego(object):
                     vely = 0
                     if event.key == K_UP:
                         jugador.sonidoFrenado.play(1)
-                        vely = self.aceleracion + 2
                         jugador.sonidoAcel.stop()
                         self.aceleracion = 0.5
                         if jugador.rectCar.colliderect(jugador2.rectCar):
@@ -577,17 +608,17 @@ class NuevoJuego(object):
                                 obstacle.listaObjetos[lista][3] += vely
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][3] += vely
-                            jugador2.rectCar.top += 5
                             rectSalida.top += vely
                         jugador.setRuta(0)
                         ventana.blit(jugador.imagenCar, jugador.rectCar)
                         if Fondo1.rectFondo.top > 10:
                             Fondo1.rectFondo.top = -2000
                     elif event.key == K_DOWN:
+                        jugador.sonidoFrenado.stop()
                         jugador.sonidoAcel.stop()
                     elif event.key == K_LEFT:
                         jugador.sonidoFrenado.play(1)
-                        velx = self.aceleracion - 3
+                        #velx = self.aceleracion - 3
                         jugador.sonidoAcel.stop()
                         self.aceleracion = 0.5
                         if jugador.rectCar.colliderect(jugador2.rectCar):
@@ -606,7 +637,7 @@ class NuevoJuego(object):
                             Fondo1.rectFondo.left = -2600
                     elif event.key == K_RIGHT:
                         jugador.sonidoFrenado.play(1)
-                        velx = self.aceleracion + 3
+                        #velx = self.aceleracion + 3
                         jugador.sonidoAcel.stop()
                         self.aceleracion = 0.5
                         if jugador.rectCar.colliderect(jugador2.rectCar):
@@ -653,16 +684,6 @@ class NuevoJuego(object):
                             if Enemigo.listaEnemigo[enem][5] <= 0:
                                 Enemigo.listaEnemigo[enem][4] = False
 
-            if jugador.vida > 69:
-                ventana.blit(pygame.image.load("Imagenes/vida3.png"), (1090, 50))
-            elif 68 > jugador.vida > 35:
-                ventana.blit(pygame.image.load("Imagenes/vida2.png"), (1090, 50))
-            elif 35 > jugador.vida > 5:
-                ventana.blit(pygame.image.load("Imagenes/vida1.png"), (1090, 50))
-            else:
-                ventana.blit(pygame.image.load("Imagenes/vida0.png"), (1090, 50))
-                pygame.quit()
-                sys.exit()
 
             # definicion del movimiento de los enemigos
             for i in range(10):
@@ -740,6 +761,42 @@ class NuevoJuego(object):
                     print("FIN")
 
 
+            otroJugador = net.send([jugador.posicionx, jugador.posiciony, jugador.ruta, jugador.vida])
+            jugador2.setRuta(otroJugador[2])
+            jugador2.rectCar.left = otroJugador[1]
+            jugador2.rectCar.top = otroJugador[0]
+            jugador2.vida = otroJugador[3]
+            if jugador2.vida > 10:
+                if velx == 0 and vely == 0:
+                    jugador2.posicionx = jugador2.rectCar.left
+                    jugador2.posiciony = jugador2.rectCar.top
+                    ventana.blit(jugador2.imagenCar, (jugador2.rectCar.left, jugador2.rectCar.top))
+                else:
+                    ventana.blit(jugador2.imagenCar, (jugador2.posicionx, jugador2.posiciony))
+
+            if jugador.rectCar.colliderect(rectSalida):
+                self.nivel += 1
+                # niveles de dificultad
+                if self.nivel == 2:
+                    self.sigNivel = NuevoJuego(3, 2.5, 5, self.username, self.nivel, 0.5)
+                    self.sigNivel.CrearVentana()
+                elif self.nivel == 3:
+                    self.otroNivel = NuevoJuego(5, 3.5, 5, self.username, self.nivel, 0.5)
+                    self.otroNivel.CrearVentana()
+                # valida si el jugador a completado el juego con exito, si es así se imprime ´pantalla de felicitación
+                else:
+                    print("FIN")
+
+            if jugador.vida > 69:
+                ventana.blit(pygame.image.load("Imagenes/vida3.png"), (1090, 50))
+            elif 68 > jugador.vida > 35:
+                ventana.blit(pygame.image.load("Imagenes/vida2.png"), (1090, 50))
+            elif 35 > jugador.vida > 5:
+                ventana.blit(pygame.image.load("Imagenes/vida1.png"), (1090, 50))
+            else:
+                ventana.blit(pygame.image.load("Imagenes/vida0.png"), (1090, 50))
+                pygame.quit()
+                sys.exit()
             # se actualiza la pantalla
             pygame.display.update()
 
