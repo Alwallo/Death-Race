@@ -367,12 +367,12 @@ class NuevoJuego(object):
 
         # variables para la ejecucion del juego
         net = Network()
-        jugador = self.playerCar(696, 452, 0)
-        jugador2 = self.playerCar(550, 452, 0)
+        jugador = self.playerCar(550, 452, 0)
+        jugador2 = self.playerCar(696, 452, 0)
         Enemigo = self.enemigo(self.rangoDisparo)
         detener = True
         enJuego = True
-        movimientoEnemigo = True
+        movimientoJugador = True
 
         Fondo1 = self.FondoPant()
         velx = 0
@@ -437,7 +437,33 @@ class NuevoJuego(object):
             # imprimir puntaje mas alto
             ventana.blit(hscor,(1200, 0))
 
-
+            otroJugador = net.send([jugador.numero, jugador.ruta, jugador.vida, jugador.aceleracion])
+            jugador2.setRuta(otroJugador[1])
+            jugador2.aceleracion = otroJugador[3]
+            jugador2.numero = otroJugador[0]
+            jugador2.vida = otroJugador[2]
+            if jugador2.vida > 10:
+                if jugador2.numero == 0:
+                    jugador2.aceleracion = 0
+                    jugador2.velocidad = 0
+                    movimientoJugador = True
+                elif jugador2.numero == 1:
+                    movimientoJugador = False
+                    jugador2.velocidad = 1
+                    jugador2.rectCar.top -= jugador2.aceleracion * jugador2.velocidad
+                elif jugador2.numero == 2:
+                    movimientoJugador = False
+                    jugador2.velocidad = 1
+                    jugador2.rectCar.top += jugador2.aceleracion * jugador2.velocidad
+                elif jugador2.numero == 3:
+                    movimientoJugador = False
+                    jugador2.velocidad = 1
+                    jugador2.rectCar.left += jugador2.aceleracion * jugador2.velocidad
+                elif jugador2.numero == 4:
+                    movimientoJugador = False
+                    jugador2.velocidad = 1
+                    jugador2.rectCar.left -= jugador2.aceleracion * jugador2.velocidad
+                ventana.blit(jugador2.imagenCar, (jugador2.rectCar.left, jugador2.rectCar.top))
 
             # ciclo para cerrar los modulos de pygame al salir del juego
             for event in pygame.event.get():
@@ -493,6 +519,8 @@ class NuevoJuego(object):
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][2] -= velx
                             jugador2.posicionx -= velx
+                        if movimientoJugador:
+                            jugador2.rectCar.left -= velx
                         #Empujar Enemigos
                         for i in range(10):
                             if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
@@ -526,6 +554,8 @@ class NuevoJuego(object):
                             for i in range(10):
                                 if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
                                     Enemigo.listaEnemigo[i][2] += 50
+                        if movimientoJugador:
+                                jugador2.rectCar.left -= velx
                         jugador.setRuta(1)
                         ventana.blit(jugador.imagenCar, jugador.rectCar)
                         jugador.sonidoOn.stop()
@@ -554,6 +584,8 @@ class NuevoJuego(object):
                             for i in range(10):
                                 if jugador.rectCar.colliderect(Enemigo.listaEnemigo[i][1]):
                                     Enemigo.listaEnemigo[i][3] -= 50
+                        if movimientoJugador:
+                            jugador2.rectCar.top += vely
                         jugador.setRuta(0)
                         ventana.blit(jugador.imagenCar, jugador.rectCar)
                         jugador.sonidoOn.stop()
@@ -577,6 +609,8 @@ class NuevoJuego(object):
                             for enem in range(10):
                                 Enemigo.listaEnemigo[enem][3] -= 5
                             jugador2.posicionx += vely
+                        if movimientoJugador:
+                            jugador2.rectCar.top -= 5
                         jugador.setRuta(0)
                         ventana.blit(jugador.imagenCar, jugador.rectCar)
                         jugador.sonidoOn.play()
@@ -609,59 +643,14 @@ class NuevoJuego(object):
                     if event.key == K_UP:
                         jugador.sonidoFrenado.play(1)
                         jugador.sonidoAcel.stop()
-                        '''if jugador.rectCar.colliderect(jugador2.rectCar):
-                            velx = 0
-                            vely = 0
-                            jugador2.rectCar.bottom -= 200
-                        else:
-                            for lista in range(810):
-                                obstacle.listaObjetos[lista][3] += vely
-                            for enem in range(10):
-                                Enemigo.listaEnemigo[enem][3] += vely
-                            rectSalida.top += vely
-                        jugador.setRuta(0)
-                        ventana.blit(jugador.imagenCar, jugador.rectCar)
-                        if Fondo1.rectFondo.top > 10:
-                            Fondo1.rectFondo.top = -2000'''
                     elif event.key == K_DOWN:
                         jugador.sonidoFrenado.stop()
                         jugador.sonidoAcel.stop()
                     elif event.key == K_LEFT:
                         jugador.sonidoFrenado.play(1)
                         jugador.sonidoAcel.stop()
-                        '''self.aceleracion = 0.5
-                        if jugador.rectCar.colliderect(jugador2.rectCar):
-                            velx = 0
-                            vely = 0
-                            jugador2.rectCar.right -= 200
-                        else:
-                            for lista in range(810):
-                                obstacle.listaObjetos[lista][2] -= velx
-                            for enem in range(10):
-                                Enemigo.listaEnemigo[enem][2] -= velx
-                            rectSalida.left -= velx
-                        jugador.setRuta(2)
-                        ventana.blit(jugador.imagenCar, jugador.rectCar)
-                        if Fondo1.rectFondo.left > 0:
-                            Fondo1.rectFondo.left = -2600'''
                     elif event.key == K_RIGHT:
                         jugador.sonidoFrenado.play(1)
-                        jugador.sonidoAcel.stop()
-                        '''self.aceleracion = 0.5
-                        if jugador.rectCar.colliderect(jugador2.rectCar):
-                            velx = 0
-                            vely = 0
-                            jugador2.rectCar.left += 200
-                        else:
-                            for lista in range(810):
-                                obstacle.listaObjetos[lista][2] -= velx
-                            for enem in range(10):
-                                Enemigo.listaEnemigo[enem][2] -= velx
-                            rectSalida.left -= velx
-                        jugador.setRuta(1)
-                        ventana.blit(jugador.imagenCar, jugador.rectCar)
-                        if Fondo1.rectFondo.right < 2600:
-                            Fondo1.rectFondo.right = 4000'''
 
                 else:
                     velx = 0
@@ -770,39 +759,6 @@ class NuevoJuego(object):
                 else:
                     print("FIN")
 
-
-            otroJugador = net.send([jugador.numero, jugador.aceleracion, jugador.ruta, jugador.vida])
-            jugador2.setRuta(otroJugador[1])
-            #jugador2.rectCar.left = otroJugador[0]
-            #jugador2.rectCar.top = otroJugador[1]
-            jugador2.numero = otroJugador[0]
-            jugador2.vida = otroJugador[2]
-            if jugador2.vida > 10:
-                '''if velx == 0 and vely == 0:
-                    jugador2.posicionx = jugador2.rectCar.left
-                    jugador2.posiciony = jugador2.rectCar.top'''
-                if jugador2.numero == 0:
-                    jugador2.aceleracion = 0
-                    jugador2.velocidad = 0
-                elif jugador2.numero == 1:
-                    jugador2.velocidad = 5
-                    jugador2.aceleracion += 0.01
-                    jugador2.rectCar.top -= jugador2.aceleracion * jugador2.velocidad
-                elif jugador2.numero == 2:
-                    jugador2.velocidad = 5
-                    jugador2.aceleracion += 0.01
-                    jugador2.rectCar.top += jugador2.aceleracion * jugador2.velocidad
-                elif jugador2.numero == 3:
-                    jugador2.velocidad = 5
-                    jugador2.aceleracion += 0.01
-                    jugador2.rectCar.left += jugador2.aceleracion * jugador2.velocidad
-                elif jugador2.numero == 4:
-                    jugador2.velocidad = 5
-                    jugador2.aceleracion += 0.01
-                    jugador2.rectCar.left -= jugador2.aceleracion * jugador2.velocidad
-                ventana.blit(jugador2.imagenCar, (jugador2.rectCar.left, jugador2.rectCar.top))
-                '''else:
-                    ventana.blit(jugador2.imagenCar, (jugador2.posicionx, jugador2.posiciony))'''
 
             if jugador.rectCar.colliderect(rectSalida):
                 self.nivel += 1
